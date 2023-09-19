@@ -1,0 +1,104 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Ch04Ex06
+{
+   class Program
+   {
+      static void Main(string[] args)
+      {
+         double realCoord, imagCoord;
+         double realTemp, imagTemp, realTemp2, arg;
+         int iterations;
+         for (imagCoord = 1.2; imagCoord >= -1.2; imagCoord -= 0.05)
+         {
+            for (realCoord = -0.6; realCoord <= 1.77; realCoord += 0.03)
+            {
+               iterations = 0;
+               realTemp = realCoord;
+               imagTemp = imagCoord;
+               arg = (realCoord * realCoord) + (imagCoord * imagCoord);
+               while ((arg < 4) && (iterations < 40))
+               {
+                  realTemp2 = (realTemp * realTemp) - (imagTemp * imagTemp)
+                        - realCoord;
+                  imagTemp = (2 * realTemp * imagTemp) - imagCoord;
+                  realTemp = realTemp2;
+                  arg = (realTemp * realTemp) + (imagTemp * imagTemp);
+                  iterations += 1;
+               }
+               switch (iterations % 4)
+               {
+                  case 0:
+                     Console.Write(".");
+                     break;
+                  case 1:
+                     Console.Write("o");
+                     break;
+                  case 2:
+                     Console.Write("O");
+                     break;
+                  case 3:
+                     Console.Write("@");
+                     break;
+               }
+            }
+            Console.Write("\n");
+         }
+         Console.ReadKey();
+      }
+   }
+}
+
+output:
+C:\Y20CS165\VISUAL>forloop
+ooooooooooooooooOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOooooooooooooooo.....
+ooooooooooooOOOOOOOO@@@@@..@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOOOOooooooooooooo....
+oooooooooOOOOOOO@@@@@....@..o.@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOOooooooooooo...
+ooooooOOOOOOO@@@@@@@.oooO@@Oo...@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOOooooooooo..
+ooooOOOOOOO@@@@@@@.o.oO.oO.Oo....@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOOoooooooo.
+ooOOOOOOOO@@@@@@@..oO@oO.o@OOo.....@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOooooooo
+OOOOOOOO@@@@@@@...oO@@o@O@O.@Oo.....@@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOooooo
+OOOOOOO@@@@@@.....oO@O@..O.o.@Ooo.....@@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOooo
+OOOOOO@@@@......ooOoo.......oo@OOoooo...@@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOoo
+OOOOO@@@.....oooOO@oo........@.@OOOooooo...@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOO
+OOOO@@.ooOooooO@...o.o......O@o..@@@@..@OO....@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOO
+OOO@@.o@@.@@@@..@..OO..........OoOOoO.oO.@Oo.....@@@@@@@@@OOOOOOOOOOOOOOOOOOOOO
+OO@@..@OOoO.@O.@...................@...@@@Oooo........@@@@@@OOOOOOOOOOOOOOOOOOO
+O@@@..o.................................o.@Ooooo..........@@@@OOOOOOOOOOOOOOOOO
+O@@..ooO@@..............................@@@@Ooooo.............@@@OOOOOOOOOOOOOO
+@@@..oO@o.o................................O.OOooooo......oooooo.@@@@OOOOOOOOOO
+@@@.oO.o..................................@@o@@OOOOOOOOOOOOOO@o@o..@@@@@@@OOOOO
+@@@.Oo......................................oo@@@@@@..@@.@@..o@Ooo....@@@@@@@@O
+@@@.o@o@...................................oOOo..oO@..O.Oo@O@O.@Oo......@@@@@@@
+@@@.o@O@....................................o.@O.O..........Oo.OOOo......@@@@@@
+@@@.oO.......................................@Oo............o.O@OOOo.......@@@@
+@@@..ooO.....................................o.................O...@@oo......@@
+@@@..oOo......................................................oo...o@OOOooooo.@
+@@@..ooO..........................................................Oooo@@@OooOOO
+@@@..ooO@.@@...................................................................
+@@@..ooO..........................................................Oooo@@@OooOOO
+@@@..oOo......................................................oo...o@OOOooooo.@
+@@@..ooO.....................................o.................O...@@oo......@@
+@@@.oO.......................................@Oo............o.O@OOOo.......@@@@
+@@@.o@O@....................................o.@O.O..........Oo.OOOo......@@@@@@
+@@@.o@o@...................................oOOo..oO@..O.Oo@O@O.@Oo......@@@@@@@
+@@@.Oo......................................oo@@@@@@..@@.@@..o@Ooo....@@@@@@@@O
+@@@.oO.o..................................@@o@@OOOOOOOOOOOOOO@o@o..@@@@@@@OOOOO
+@@@..oO@o.o................................O.OOooooo......oooooo.@@@@OOOOOOOOOO
+O@@..ooO@@..............................@@@@Ooooo.............@@@OOOOOOOOOOOOOO
+O@@@..o.................................o.@Ooooo..........@@@@OOOOOOOOOOOOOOOOO
+OO@@..@OOoO.@O.@...................@...@@@Oooo........@@@@@@OOOOOOOOOOOOOOOOOOO
+OOO@@.o@@.@@@@..@..OO..........OoOOoO.oO.@Oo.....@@@@@@@@@OOOOOOOOOOOOOOOOOOOOO
+OOOO@@.ooOooooO@...o.o......O@o..@@@@..@OO....@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOO
+OOOOO@@@.....oooOO@oo........@.@OOOooooo...@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOO
+OOOOOO@@@@......ooOoo.......oo@OOoooo...@@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOoo
+OOOOOOO@@@@@@.....oO@O@..O.o.@Ooo.....@@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOooo
+OOOOOOOO@@@@@@@...oO@@o@O@O.@Oo.....@@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOooooo
+ooOOOOOOOO@@@@@@@..oO@oO.o@OOo.....@@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOooooooo
+ooooOOOOOOO@@@@@@@.o.oO.oO.Oo....@@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOOoooooooo.
+ooooooOOOOOOO@@@@@@@.oooO@@Oo...@@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOOooooooooo..
+oooooooooOOOOOOO@@@@@....@..o.@@@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOOooooooooooo...
+ooooooooooooOOOOOOOO@@@@@..@@@@@@OOOOOOOOOOOOOOOOOOOOOOOOOOOOOooooooooooooo....
